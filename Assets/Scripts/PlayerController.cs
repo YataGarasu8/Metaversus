@@ -5,8 +5,14 @@ using UnityEngine;
 public class PlayerController : BaseController
 {
     public GameObject Fkey;
+
+    //protected override void FixedUpdate()
+    //{
+        
+    //}
     protected override void ActionController()
     {
+        transform.rotation = Quaternion.Euler(0, 0, 0);//축을 고정해서 스프라이트가 돌아가는 걸 방지. 근데 재밌는 물리현상이 발생함
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         moveValue = new Vector2(horizontal, vertical).normalized;
@@ -20,18 +26,18 @@ public class PlayerController : BaseController
             spriteRenderer.flipX = false; // 오른쪽 이동 시 원래 방향
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)//Collider에서 IsTrigger가 체크가 안되어 있을 때 사용, 매개변수 이름도 차이 남
+    private void OnTriggerEnter2D(Collider2D collision)//Collider에서 IsTrigger가 체크가 안되어 있을 때 사용, 매개변수 이름도 차이 남
     {
-        if (collision.gameObject.CompareTag("Player")) // 충돌한 객체가 플레이어인지 확인
+        if (collision.gameObject.CompareTag("NPC")) // 충돌한 객체가 플레이어인지 확인
         {
-            talkBox.SetActive(true);//플레이어가 범위에 있으면 대화 상자 출력 
+            Fkey.SetActive(true);//NPC가 범위에 있으면 F표시 출력 
         }
     }
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("NPC"))
         {
-            talkBox.SetActive(false); // 플레이어가 벗어나면 자동으로 대화 상자 숨기기
+            Fkey.SetActive(false); // NPC가 없으면 F표시 숨기기
         }
     }
 }
