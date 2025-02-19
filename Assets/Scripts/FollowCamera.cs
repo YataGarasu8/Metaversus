@@ -27,8 +27,8 @@ public class FollowCamera : MonoBehaviour
         Vector3 pos = transform.position;
         pos.x = Player.position.x + offsetX;
         pos.y = Player.position.y + offsetY;
-
-
+        pos.x = Mathf.Clamp(pos.x, -5.3f, 5.3f);
+        pos.y = Mathf.Clamp(pos.y, -5.1f, 5.1f);
 
         transform.position = pos;
     }
