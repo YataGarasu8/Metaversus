@@ -13,10 +13,11 @@ public class BaseController : MonoBehaviour
     protected Vector2 MoveValue { get { return moveValue; } }
     protected Vector2 LookAt { get { return lookAt; } }
 
+    protected AnimationController animationController;
     protected virtual void Awake()//virtual 적용하면 private를 못 쓰네.
     {
-
         rigidBody = GetComponent<Rigidbody2D>();
+        animationController = GetComponent<AnimationController>();
     }
     // Start is called before the first frame update
     protected virtual void Start()
@@ -39,6 +40,7 @@ public class BaseController : MonoBehaviour
     {
         value = value * 5;
         rigidBody.velocity = value;
+        animationController.Move(value);
     }
     void Rotate(Vector2 value)
     {
