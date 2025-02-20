@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager gameManager;
     public int addPoint = 0;
-    public float runTime = 30f;
+    public float runTime = 60f;
 
     private void Awake()
     {

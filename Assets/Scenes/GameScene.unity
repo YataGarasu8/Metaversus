@@ -16887,20 +16887,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb9863f4e283acc4597585a3f9e73ebc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sparkle:
+  sparkleprefab:
   - {fileID: 2265499111390448985, guid: 84eccbe4735398a4f822e4659a991e2d, type: 3}
-  - {fileID: 5034696143269094652, guid: c5d91119ceec18b45829a2668ddf3550, type: 3}
   - {fileID: 7208906474271542998, guid: 1a677f71029ee8c4f8605b1db1a0f962, type: 3}
-  - {fileID: 3810971854300749409, guid: 80f1dbdaac76190478c7d56db010b724, type: 3}
+  - {fileID: 5034696143269094652, guid: c5d91119ceec18b45829a2668ddf3550, type: 3}
   - {fileID: 2878543873609481961, guid: c20288f5bb1780745a2e3a966c3b502b, type: 3}
+  - {fileID: 3810971854300749409, guid: 80f1dbdaac76190478c7d56db010b724, type: 3}
   spawnAreas:
   - serializedVersion: 2
-    x: -17
-    y: 18
-    width: -20
-    height: 19
+    x: 19.2
+    y: -20.41
+    width: -37.1
+    height: 41.1
   timeBetweenSpawnsCoin: 0.2
-  timeBetweenSpawnsFood: 1
+  timeBetweenSpawnswave: 1
+  gizmoColor: {r: 1, g: 0, b: 0, a: 0.3}
 --- !u!1 &558970240
 GameObject:
   m_ObjectHideFlags: 0

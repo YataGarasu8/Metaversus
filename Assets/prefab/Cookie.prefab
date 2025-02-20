@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   point: 0
-  time: 10
+  time: 5
 --- !u!1 &5986262879051583326
 GameObject:
   m_ObjectHideFlags: 0
