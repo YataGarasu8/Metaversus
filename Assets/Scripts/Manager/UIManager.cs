@@ -10,6 +10,11 @@ public class UIManager : MonoBehaviour
 
     public TextMeshProUGUI pointText;
     public TextMeshProUGUI timeText;
+    public TextMeshProUGUI bestPointText;
+    public TextMeshProUGUI nowPointText;
+
+    int bestPoint;
+
     private void Awake()
     {
         if(instance == null)
@@ -20,16 +25,23 @@ public class UIManager : MonoBehaviour
     public void UpdatePoint(int point)
     {
         pointText.text = point.ToString();
+        nowPointText.text = point.ToString();
+       if (point > bestPoint)
+        {
+            bestPoint = point;
+            bestPointText.text = bestPoint.ToString();
+        }
     }
     public void RunTime(float time)
     {
         if (time > 0)
         {
-            GameManager.gameManager.runTime -= Time.deltaTime;
+            GameManager.instance.runTime -= Time.deltaTime;
         }
         else
         {
-            GameManager.gameManager.runTime = 0f;
+            GameManager.instance.runTime = 0f;
+            GameManager.instance.GameOver();
         }
         timeText.text = time.ToString("N2");
     }

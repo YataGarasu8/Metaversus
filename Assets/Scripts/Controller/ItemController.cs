@@ -13,8 +13,8 @@ public class ItemController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            GameManager.gameManager.addPoint += point;
-            GameManager.gameManager.runTime += time;
+            GameManager.instance.addPoint += point;
+            GameManager.instance.runTime += time;
             SoundManager.PlayClip(getCoinSound);
             Destroy(this.gameObject);
         }

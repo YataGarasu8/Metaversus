@@ -5,6 +5,7 @@ using Random = UnityEngine.Random;
 
 public class ItemManager : MonoBehaviour
 {
+    GameManager gameManager;
     Coroutine waveRoutine;
 
     [SerializeField] List<GameObject> sparkleprefab;
