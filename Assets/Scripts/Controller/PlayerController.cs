@@ -12,7 +12,7 @@ public class PlayerController : BaseController
     //}
     protected override void ActionController()
     {
-        transform.rotation = Quaternion.Euler(0, 0, 0);//축을 고정해서 스프라이트가 돌아가는 걸 방지. 근데 재밌는 물리현상이 발생함
+        transform.rotation = Quaternion.Euler(0, 0, 0);//축을 고정해서 스프라이트가 돌아가는 걸 방지. 근데 재밌는 물리현상이 발생했음
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         moveValue = new Vector2(horizontal, vertical).normalized;
