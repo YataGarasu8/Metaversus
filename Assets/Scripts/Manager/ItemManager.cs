@@ -10,17 +10,16 @@ public class ItemManager : MonoBehaviour
     [SerializeField] List<GameObject> sparkleprefab;
     [SerializeField] List<Rect> spawnAreas;
     [SerializeField] float timeBetweenSpawnsCoin = 0.2f;
-    [SerializeField] float timeBetweenSpawnswave = 1f;
     [SerializeField] private Color gizmoColor = new Color(1, 0, 0, 0.3f); // 기즈모 색상
 
     List<ItemController> activeItem = new List<ItemController>();
-    bool spawnComplite;
+    //bool spawnComplite;
 
-    public void StartWave(int waveCount)
+    public void StartWave()
     {
         if (waveRoutine != null)
         { StopCoroutine(waveRoutine); }
-        waveRoutine = StartCoroutine(SpawnWave(waveCount));
+        waveRoutine = StartCoroutine(SpawnWave(2));
     }
     public void StopWave()
     {
@@ -28,7 +27,7 @@ public class ItemManager : MonoBehaviour
     }
     private IEnumerator SpawnWave(int waveCount)
     {
-        spawnComplite = false;
+        //spawnComplite = false;
         yield return new WaitForSeconds(timeBetweenSpawnsCoin);
         for (int i = 0; i < waveCount; i++)
         {
@@ -36,7 +35,7 @@ public class ItemManager : MonoBehaviour
             SpawnRandomItem();
         }
 
-        spawnComplite = true;
+        //spawnComplite = true;
     }
         void SpawnRandomItem()
     {
@@ -63,11 +62,8 @@ public class ItemManager : MonoBehaviour
             Gizmos.DrawCube(center, size);
         }
     }
-    private void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartWave(5);
-        }
+        InvokeRepeating("StartWave", 1f, 3f); 
     }
 }

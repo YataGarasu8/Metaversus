@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ItemController : MonoBehaviour
 {
+    public AudioClip getCoinSound;
+
     public int point;
     public float time;
 
@@ -13,6 +15,7 @@ public class ItemController : MonoBehaviour
         {
             GameManager.gameManager.addPoint += point;
             GameManager.gameManager.runTime += time;
+            SoundManager.PlayClip(getCoinSound);
             Destroy(this.gameObject);
         }
     }
